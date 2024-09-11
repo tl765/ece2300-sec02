@@ -13,10 +13,10 @@ module PairTripleDetector
   wire w;
   wire y;
   wire x;
-  or( w, in0, in1); 
-  and(y, w, in2); 
-  and(x, in0, in1); 
-  or(out, y, x); 
+  assign w = in0 | in1;
+  assign y = w & in2;
+  assign x = in0 & in1;
+  assign out = y | x;
 
 endmodule
 
